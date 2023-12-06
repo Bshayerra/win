@@ -1,6 +1,5 @@
 <?php
-
-$connection = mysqli_connect('localhost', 'root' , 'root', 'winwin');
-if(!$connection){
+$conn =mysqli_connect('localhost','root','root', 'winwin');
+if(!$conn){
     echo 'Error: ' . mysqli_connect_errno();
 }
