@@ -1,3 +1,5 @@
+
+
 <?php 
 include './include/database.php';
 include './include/form.php';
@@ -21,20 +23,11 @@ include './include/database_close.php';
 <div class="position-relative text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-4 fw-normal">Win With Us</h1>
-      <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+      <p class="lead fw-normal">Remaining until registration closes</p>
+      <h3 id="demo" ></h3>
       <a class="btn btn-outline-secondary" href="#">Coming soon</a>
     </div>
   </div>
-<!--
-  <ul class="list-group list-group-flush">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
-</ul>
--->
-
 <div class="position-relative text-right ">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
 
@@ -72,7 +65,5 @@ include './include/database_close.php';
     <script src="./js/script.js"></script>
 </body>
 </html>
-
-
 
 
