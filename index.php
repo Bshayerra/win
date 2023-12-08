@@ -23,7 +23,7 @@ mysqli_close($conn);
 </head>
 <body>
 <div class="container">
-
+<!--
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-4 fw-normal">Win With Us</h1>
@@ -39,26 +39,26 @@ mysqli_close($conn);
   <li class="list-group-item">A fourth item</li>
   <li class="list-group-item">And a fifth one</li>
 </ul>
-
+-->
 <form class="mt-5">
     <h3>Please enter your information</h3>
 <form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">First Name</label>
-    <input type="text" name="FirstName" id="firstName" placeholder="first name" class="form-control">
-    <div id="firstName" class="form-text error "></div>
+    <input type="text" name="FirstName" id="firstName" placeholder="first name" class="form-control" value="<?php echo $firstName ?>">
+    <div id="firstName" class="form-text error "><?php echo $errors['firstNameError'] ?></div>
   </div>
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Last Name</label>
-    <input  type="text" name="LastName" id="lastName" placeholder="last name" class="form-control">
-    <div id="lastName" class="form-text error "></div>
+    <input  type="text" name="LastName" id="lastName" placeholder="last name" class="form-control" value="<?php echo $lastName ?>">>
+    <div id="lastName" class="form-text error "><?php echo $errors['lastNameError'] ?></div>
   </div>
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="text" name="Email" id="email" placeholder="Email Address" class="form-control">
-    <div id="email" class="form-text error"></div>
+    <input type="text" name="Email" id="email" placeholder="Email Address" class="form-control" value="<?php echo $email ?>">>
+    <div id="email" class="form-text error"><?php echo $errors['emailError'] ?></div>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

@@ -3,25 +3,29 @@ $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
 
+$errors = [ 
+    'firstNameError'=>' ',
+    'lastNameError'=>' ',
+    'emailError'=>' ',
+];
+
 if(isset($_POST['submit'])){
-   // To enter the input as string not JavaScript.
-$firstName = mysqli_real_escape_string($conn, $_POST['firstName']) ;
-$lastName = mysqli_real_escape_string($conn, $_POST['lastName']) ;
-$email = mysqli_real_escape_string($conn, $_POST['email']) ;
-
-
-    $sql = "INSERT INTO users(firstName, lastName, email) 
-    VALUES('$firstName', '$lastName', '$email')";
-
+// check first name
 if(empty($firstName)){
-    echo'please enter first name';
-}else if(empty($lastName)){
-    echo'please enter last name';
-}else if(empty($email)){
-    echo'please enter email';
+    $errors['firstNameError'] = 'Please enter first name';
+}
+// check last name
+if(empty($lastName)){
+    $errors['lastNameError'] = 'Please enter first name';
+}
+// check email
+ if(empty($email)){
+    $errors['emailError'] = 'Please enter first name';
 }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    echo'please enter correct email';
-}else{
+    $errors['emailError'] = 'Please enter enter correct email';
+}
+
+// check no error 
     if(mysqli_query($conn, $sql)){
    header('Location: index.php');
      }else {
@@ -29,3 +33,14 @@ if(empty($firstName)){
     }
 }
 }
+
+/*
+// To enter the input as string not JavaScript.
+$firstName = mysqli_real_escape_string($conn, $_POST['firstName']) ;
+$lastName = mysqli_real_escape_string($conn, $_POST['lastName']) ;
+$email = mysqli_real_escape_string($conn, $_POST['email']) ;
+
+
+    $sql = "INSERT INTO users(firstName, lastName, email) 
+    VALUES('$firstName', '$lastName', '$email')";
+*/
