@@ -1,6 +1,15 @@
 <?php 
 include './include/database.php';
-include './include/form.php'
+include './include/form.php';
+
+$sql = 'SELECT * FROM user';
+$result = mysqli_query($conn, $sql); // store data in vriable result.
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC); //bring and order thae data in a matrix way
+
+
+mysqli_free_result($result);
+mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +29,13 @@ include './include/form.php'
     </form>
 
 
-<script src="./js/script.js"></script>
+    <?php foreach($users as $user)  : ?>
+        <h1><?php echo htmlspecialchars($user['cardNumber']); ?></h1> ;
+      <?php  endforeach; ?>
+    <script src="./js/script.js"></script>
 </body>
 </html>
+
+
+
+
