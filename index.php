@@ -1,14 +1,8 @@
 <?php 
 include './include/database.php';
 include './include/form.php';
-
-$sql = 'SELECT * FROM users';
-$result = mysqli_query($conn, $sql); // store data in vriable result.
-$users = mysqli_fetch_all($result, MYSQLI_ASSOC); //bring and order thae data in a matrix way
-
-
-mysqli_free_result($result);
-mysqli_close($conn);
+include './include/select.php' ;
+include './include/database_close.php';
 
 ?>
 
@@ -23,15 +17,15 @@ mysqli_close($conn);
 </head>
 <body>
 <div class="container">
-<!--
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+
+<div class="position-relative text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-4 fw-normal">Win With Us</h1>
       <p class="lead fw-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
       <a class="btn btn-outline-secondary" href="#">Coming soon</a>
     </div>
   </div>
-
+<!--
   <ul class="list-group list-group-flush">
   <li class="list-group-item">An item</li>
   <li class="list-group-item">A second item</li>
@@ -40,41 +34,36 @@ mysqli_close($conn);
   <li class="list-group-item">And a fifth one</li>
 </ul>
 -->
-<form class="mt-5">
+
+<div class="position-relative text-right ">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+
+<form  action="<?php $_SERVER['PHP_SELF']?>" method="POST">
     <h3>Please enter your information</h3>
 <form>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">First Name</label>
+    <label for="firstName" class="form-label">First Name</label>
     <input type="text" name="FirstName" id="firstName" placeholder="first name" class="form-control" value="<?php echo $firstName ?>">
-    <div id="firstName" class="form-text error "><?php echo $errors['firstNameError'] ?></div>
+    <div  class="form-text error "><?php echo $errors['firstNameError'] ?></div>
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Last Name</label>
+    <label for="lastName" class="form-label">Last Name</label>
     <input  type="text" name="LastName" id="lastName" placeholder="last name" class="form-control" value="<?php echo $lastName ?>">>
-    <div id="lastName" class="form-text error "><?php echo $errors['lastNameError'] ?></div>
+    <div class="form-text error "><?php echo $errors['lastNameError'] ?></div>
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <label for="email" class="form-label">Email address</label>
     <input type="text" name="Email" id="email" placeholder="Email Address" class="form-control" value="<?php echo $email ?>">>
-    <div id="email" class="form-text error"><?php echo $errors['emailError'] ?></div>
+    <div class="form-text error"><?php echo $errors['emailError'] ?></div>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
 </div>
+  </div>
 
-<!--
-    <form action="index.php" method="POST">
-    <input type="text" name="FirstName" id="firstName" placeholder="first name">
-    <input type="text" name="LastName" id="lastName" placeholder="last name"> 
-    <input type="text" name="Email" id="email" placeholder="email">
-    <input type="submit" name="submit" value="send">
-    </form>
-
--->
     <?php foreach($users as $user): ?>
         <h1><?php echo htmlspecialchars($user['firstName']) . ' ' . htmlspecialchars($user['lasstName']) .' ' . htmlspecialchars($user['email']) ; ?></h1> ;
       <?php  endforeach; ?>

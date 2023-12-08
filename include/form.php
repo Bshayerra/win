@@ -26,21 +26,22 @@ if(empty($lastName)){
 }
 
 // check no error 
-    if(mysqli_query($conn, $sql)){
-   header('Location: index.php');
-     }else {
-    echo 'Error: ' . mysqli_error($conn);
-    }
-}
-}
-
-/*
+if (array_filter($errors)){
 // To enter the input as string not JavaScript.
 $firstName = mysqli_real_escape_string($conn, $_POST['firstName']) ;
 $lastName = mysqli_real_escape_string($conn, $_POST['lastName']) ;
 $email = mysqli_real_escape_string($conn, $_POST['email']) ;
 
+$sql = "INSERT INTO users(firstName, lastName, email) 
+VALUES('$firstName', '$lastName', '$email')";
 
-    $sql = "INSERT INTO users(firstName, lastName, email) 
-    VALUES('$firstName', '$lastName', '$email')";
-*/
+if(mysqli_query($conn, $sql)){
+    header('Location:' .  $_SERVER['PHP_SELF']);
+      }else {
+     echo 'Error: ' . mysqli_error($conn);
+     }
+
+}
+
+}
+
