@@ -5,7 +5,7 @@ var countDownDate = new Date("Dec 28, 2023 15:37:25").getTime();
 // Update the count down every 1 second
 var x = setInterval(function() {
 
-    var counter =  document.getElementById("demo");
+    var counter =  document.querySelector("#countdown");
   // Get today's date and time
   var now = new Date().getTime();
 
@@ -28,3 +28,11 @@ var x = setInterval(function() {
     counter.innerHTML = "EXPIRED";
   }
 }, 1000);
+
+
+//To choose the winner
+const win = document.querySelector("#winner");
+const cards = document.querySelector("#cards");
+win.addEventListener('click', function(){
+cards.style.display= 'flex';
+});

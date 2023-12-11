@@ -18,16 +18,24 @@ include './include/database_close.php';
     <title>Document</title>
 </head>
 <body>
+
 <div class="container">
 
 <div class="position-relative text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
       <h1 class="display-4 fw-normal">Win With Us</h1>
       <p class="lead fw-normal">Remaining until registration closes</p>
-      <h3 id="demo" ></h3>
+      <h3 id="countdown" ></h3>
       <a class="btn btn-outline-secondary" href="#">Coming soon</a>
     </div>
   </div>
+
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item">Wlcome</li>
+  <li class="list-group-item">Participate with us, you don't know, you might win! </li>
+</ul>
+
+  
 <div class="position-relative text-right ">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
 
@@ -54,13 +62,27 @@ include './include/database_close.php';
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
 </div>
   </div>
 
+  <button id="winner" type="button"> select winner </button>
+  
+<div id="cards" class= "row mb-5 pb-5">
+  
     <?php foreach($users as $user): ?>
-        <h1><?php echo htmlspecialchars($user['firstName']) . ' ' . htmlspecialchars($user['lasstName']) .' ' . htmlspecialchars($user['email']) ; ?></h1> ;
-      <?php  endforeach; ?>
 
+      <div class="col-sm-6">
+<div class="card my-2 bg-light">
+  <div class="card-body">
+       <h5 class= "card-title"><?php echo htmlspecialchars($user['firstName']) . ' ' . htmlspecialchars($user['lasstName']) .'<br> ' . htmlspecialchars($user['email']) ; ?></h5> ;
+        <p class= "card-text"><?php echo " " ?></p>
+      </div>
+      </div>
+</div>
+        <?php  endforeach; ?>
+  </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
