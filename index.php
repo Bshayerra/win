@@ -67,8 +67,35 @@ include './include/database_close.php';
 </div>
   </div>
 
-  <button id="winner" type="button"> select winner </button>
-  
+
+
+
+<!-- Button trigger modal -->
+<div class="d-grid gap-2 col-6 mx-auto my-5">
+<button id="winner" type="button" class="btn btn-primary" >
+select winner
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">The winner</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <?php foreach($users as $user): ?>
+        <h5 class="modal-title display-3 text-center" id="modalLabel"><?php echo htmlspecialchars($user['firstName']) . ' ' . htmlspecialchars($user['lasstName']) ; ?></h5>
+        <?php  endforeach; ?>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
 <div id="cards" class= "row mb-5 pb-5">
   
     <?php foreach($users as $user): ?>
@@ -76,8 +103,8 @@ include './include/database_close.php';
       <div class="col-sm-6">
 <div class="card my-2 bg-light">
   <div class="card-body">
-       <h5 class= "card-title"><?php echo htmlspecialchars($user['firstName']) . ' ' . htmlspecialchars($user['lasstName']) .'<br> ' . htmlspecialchars($user['email']) ; ?></h5> ;
-        <p class= "card-text"><?php echo " " ?></p>
+       <h5 class= "card-title"></h5> ;
+        <p class= "card-text"><?php echo htmlspecialchars($user['email']); ?></p>
       </div>
       </div>
 </div>

@@ -32,7 +32,15 @@ var x = setInterval(function() {
 
 //To choose the winner
 const win = document.querySelector("#winner");
-const cards = document.querySelector("#cards");
-win.addEventListener('click', function(){
-cards.style.display= 'flex';
+
+var myModal = new bootstrap.Modal(document.getElementById('modal'), {
+  Keyboard: false
 });
+
+win.addEventListener('click', function(){
+setTimeout(function(){
+  myModal.show()
+}, 1000);
+});
+
+
