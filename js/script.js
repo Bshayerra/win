@@ -30,17 +30,5 @@ var x = setInterval(function() {
 }, 1000);
 
 
-//To choose the winner
-const win = document.querySelector("#winner");
-
-var myModal = new bootstrap.Modal(document.getElementById('modal'), {
-  Keyboard: false
-});
-
-win.addEventListener('click', function(){
-setTimeout(function(){
-  myModal.show()
-}, 1000);
-});
 
 

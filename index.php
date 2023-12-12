@@ -62,12 +62,14 @@ include './include/database_close.php';
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
 </div>
   </div>
 
-
+<div class="loader-con">
+  <div id="loader">
+	<canvas id="circularLoader" width="200" height="200"></canvas>
+</div>
+</div>
 
 
 <!-- Button trigger modal -->
@@ -110,8 +112,10 @@ select winner
 </div>
         <?php  endforeach; ?>
   </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/loader.js"></script>
 </body>
 </html>
 
