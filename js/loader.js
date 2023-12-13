@@ -20,7 +20,8 @@ function progressSim(){
 	if(al >= 100){
 		clearTimeout(sim);
 	    // Add scripting here that will run when progress completes
-        myModal.show()
+        myModal.show();
+		loader.style.display = 'none';
     
     
     }

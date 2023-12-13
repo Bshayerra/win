@@ -19,23 +19,29 @@ include './include/database_close.php';
 </head>
 <body>
 
-<div class="container">
+
 
 <div class="position-relative text-center bg-light">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <img src ="./image/images.jpg " alt=" ">
       <h1 class="display-4 fw-normal">Win With Us</h1>
       <p class="lead fw-normal">Remaining until registration closes</p>
       <h3 id="countdown" ></h3>
-      <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-    </div>
-  </div>
+    
 
-  <ul class="list-group list-group-flush">
+      <div class="container">
+    <ul class="list-group list-group-flush ">
   <li class="list-group-item">Wlcome</li>
   <li class="list-group-item">Participate with us, you don't know, you might win! </li>
 </ul>
+      </div>
+    </div>
 
-  
+  </div>
+
+
+
+  <div class="container">
 <div class="position-relative text-right ">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
 
@@ -111,6 +117,7 @@ select winner
       </div>
 </div>
         <?php  endforeach; ?>
+  </div>
   </div>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
